@@ -16,10 +16,10 @@ const getRegistrations = async function (req, res) {
 const getIdRegistration = async function (req, res) {
   try {
     const { id } = req.params;
-    const day = await employee.findOne({ where: { id } });
+    const {dayFiltered} = req
     res.status(200).json({
       status: `success to download the registration for the id: ${id}`,
-      data: { day },
+      data: { dayFiltered },
     });
   } catch {
     console.log("Unable to find the registration");
